@@ -22,13 +22,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  double height = 1.8;
+  double height = 1.4;
   bool heightState = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.purple,
+        backgroundColor: Colors.white30,
+        elevation: 0,
         title: Text(
           "Portfolio App",
           textDirection: TextDirection.ltr,
@@ -36,12 +37,12 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
       ),
       body: _portfolio(context),
-      backgroundColor: Colors.purple,
+      backgroundColor: Colors.white30,
     );
   }
 
   Widget _portfolio(BuildContext context) {
-    void setHeight({double height: 1.8}) => this.height = height;
+    void setHeight({double height: 1.4}) => this.height = height;
     double getHeight() => this.height;
     void setHeightState({bool heightState: true}) =>
         this.heightState = heightState;
@@ -56,7 +57,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 foregroundDecoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/starry_night.png"),
+                    image: AssetImage("assets/my_pic.png"),
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -77,7 +78,7 @@ class _HomePageState extends State<HomePage> {
               Center(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -88,7 +89,8 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           "Sebastine Odeh.",
-                          style: TextStyle(fontSize: 28, color: Colors.purple[400]),
+                          style: TextStyle(
+                              fontSize: 28, color: Colors.purple[400]),
                         )
                       ],
                     ),
@@ -105,8 +107,10 @@ class _HomePageState extends State<HomePage> {
         Expanded(
           child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(topLeft: Radius.circular(18), topRight: Radius.circular(18),),
-              color: Colors.purple[700],
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(34),
+              ),
             ),
             height: MediaQuery.of(context).size.height,
             child: Padding(
@@ -123,7 +127,7 @@ class _HomePageState extends State<HomePage> {
                           foregroundDecoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(64),
                               image: DecorationImage(
-                                  image: AssetImage("assets/my_pic.jpg"),
+                                  image: AssetImage("assets/my_pic.png"),
                                   fit: BoxFit.fill)),
                         ),
                         Row(
@@ -131,14 +135,14 @@ class _HomePageState extends State<HomePage> {
                             Text(
                               "Name: ",
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.black,
                                   fontSize: 28,
                                   fontWeight: FontWeight.bold),
                             ),
                             Text(
                               "Sebastine Odeh",
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.black,
                                   fontSize: 28,
                                   fontWeight: FontWeight.w400),
                             )
@@ -150,6 +154,7 @@ class _HomePageState extends State<HomePage> {
                       height: 20,
                     ),
                     Card(
+                      color: Colors.black,
                       elevation: 8,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -157,12 +162,16 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Text(
                               "About",
-                              style:
-                                  TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                             Text(
                               "I am a student of the University of Lagos, studying Computer Engineering. I build mobile apps using flutter.",
                               style: TextStyle(
+                                color: Colors.white,
                                 fontSize: 22,
                                 fontWeight: FontWeight.normal,
                               ),
@@ -178,6 +187,7 @@ class _HomePageState extends State<HomePage> {
                     Text(
                       "Projects",
                       style: TextStyle(
+                          color: Colors.black,
                           fontWeight: FontWeight.bold,
                           fontSize: 32,
                           decoration: TextDecoration.underline),
@@ -185,11 +195,15 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       height: 20,
                     ),
-                    _projectInfo(
-                        assetPath: "assets/weather_app.png",
-                        projectTitle: "Weather app",
-                        projectInfo: "This is a weather app built with flutter."
-                            "The project served as practice for understanding states in flutter and for calling APIs.")
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: _projectInfo(
+                          assetPath: "assets/weather_app.png",
+                          projectTitle: "Weather app",
+                          projectInfo:
+                              "This is a weather app built with flutter."
+                              "The project served as practice for understanding states in flutter and for calling APIs."),
+                    )
                   ],
                 ),
               ),
