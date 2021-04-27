@@ -90,7 +90,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Text(
                         "Sebastine Odeh.",
-                        style: TextStyle(fontSize: 32, color: Colors.deepOrange),
+                        style:
+                            TextStyle(fontSize: 32, color: Colors.deepOrange),
                       ),
                       Text(
                         "Mobile Developer(Flutter)",
@@ -114,7 +115,6 @@ class _HomePageState extends State<HomePage> {
                 topRight: Radius.circular(34),
               ),
             ),
-            height: MediaQuery.of(context).size.height,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: SingleChildScrollView(
@@ -123,7 +123,8 @@ class _HomePageState extends State<HomePage> {
                     Container(
                       decoration: BoxDecoration(
                         color: Colors.black,
-                        borderRadius: BorderRadius.only(topRight: Radius.circular(30)),
+                        borderRadius:
+                            BorderRadius.only(topRight: Radius.circular(30)),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -144,7 +145,7 @@ class _HomePageState extends State<HomePage> {
                                 fontSize: 22,
                                 fontWeight: FontWeight.normal,
                               ),
-                              textDirection: TextDirection.ltr,
+                              textAlign: TextAlign.center,
                             ),
                           ],
                         ),
@@ -153,14 +154,61 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       height: 20,
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                      ),
-                      child: Column(
-                        children: [
-                          Text("Specialisations", style: TextStyle(color: Colors.white),),
-                        ],
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                        ),
+                        child: Column(
+                          children: [
+                            Text(
+                              "Skills",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 28,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 130,
+                              child: GridView.count(
+                                childAspectRatio: 2,
+                                crossAxisCount: 2,
+                                padding: EdgeInsets.all(8.0),
+                                crossAxisSpacing: 8,
+                                mainAxisSpacing: 8,
+                                children: [
+                                  _specialisationInfo(
+                                    icon: Icon(
+                                      Icons.code,
+                                      color: Colors.red,
+                                    ),
+                                    speciality: "Flutter",
+                                  ),
+                                  _specialisationInfo(
+                                      icon: Icon(
+                                        Icons.stream,
+                                        color: Colors.red,
+                                      ),
+                                      speciality: "StateManagement with blocs"),
+                                  _specialisationInfo(
+                                      icon: Icon(
+                                        Icons.code,
+                                        color: Colors.red,
+                                      ),
+                                      speciality: "Dart"),
+                                  _specialisationInfo(
+                                    icon: Icon(
+                                      Icons.android_rounded, color: Colors.red,
+                                    ),
+                                    speciality: "Android development"
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     Text(
@@ -170,9 +218,6 @@ class _HomePageState extends State<HomePage> {
                           fontWeight: FontWeight.bold,
                           fontSize: 32,
                           decoration: TextDecoration.underline),
-                    ),
-                    SizedBox(
-                      height: 20,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -193,54 +238,75 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _specialisationInfo({Icon icon, String specialisationName}){
-    return GridTile(header: Container(
-      child: icon,
-    ),child: Text(specialisationName));
+  Widget _specialisationInfo({Icon icon, String speciality}) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.all(
+          Radius.circular(12),
+        ),
+      ),
+      child: GridTile(
+        child: icon,
+        footer: Text(
+          speciality,
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          textAlign: TextAlign.center,
+        ),
+      ),
+    );
   }
 
   Widget _projectInfo(
       {String assetPath, String projectTitle, String projectInfo}) {
     return Container(
-      child: Column(
-        children: [
-          Image(
-            image: AssetImage(assetPath),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Card(
-            elevation: 8,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  Text(
-                    projectTitle,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 28,
+      color: Colors.deepOrange,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Image(
+              image: AssetImage(assetPath),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Card(
+              elevation: 8,
+              color: Colors.black,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    Text(
+                      projectTitle,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 28,
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    projectInfo,
-                    style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      fontSize: 22,
+                    SizedBox(
+                      height: 10,
                     ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                ],
+                    Text(
+                      projectInfo,
+                      style: TextStyle(
+                        fontWeight: FontWeight.normal,
+                        fontSize: 22,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
