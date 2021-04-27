@@ -141,7 +141,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 20,
                   ),
                   Column(
                     children: [
@@ -158,8 +158,19 @@ class _HomePageState extends State<HomePage> {
                         ),
                         textDirection: TextDirection.ltr,
                       ),
-                      SizedBox(height: 20,),
-                      Text("Projects"),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        "Projects",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 32,
+                            decoration: TextDecoration.underline),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
                       _projectInfo(
                           assetPath: "assets/weather_app.png",
                           projectTitle: "Weather app",
