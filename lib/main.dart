@@ -66,39 +66,41 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.transparent,
                 child: Icon(
                   getHeightState() == true ? Icons.close : Icons.height,
-                  color: Colors.purple[400],
+                  color: Colors.deepOrange,
                 ),
                 onPressed: () => setState(() {
-                  getHeightState() == true ? setHeight(height: 5) : setHeight();
+                  getHeightState() == true
+                      ? setHeight(height: 2.7)
+                      : setHeight();
                   getHeightState() == true
                       ? setHeightState(heightState: false)
                       : setHeightState();
                 }),
               ),
               Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Hello, I'm ",
-                          style: TextStyle(fontSize: 28, color: Colors.white70),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        "Hello, I am ",
+                        style: TextStyle(fontSize: 24, color: Colors.white),
+                      ),
+                      Text(
+                        "Sebastine Odeh.",
+                        style: TextStyle(fontSize: 32, color: Colors.deepOrange),
+                      ),
+                      Text(
+                        "Mobile Developer(Flutter)",
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
                         ),
-                        Text(
-                          "Sebastine Odeh.",
-                          style: TextStyle(
-                              fontSize: 28, color: Colors.purple[400]),
-                        )
-                      ],
-                    ),
-                    Text(
-                      "I'm a full-stack mobile developer.",
-                      style: TextStyle(fontSize: 28, color: Colors.white70),
-                    )
-                  ],
+                      ),
+                    ],
+                  ),
                 ),
               )
             ],
@@ -118,44 +120,11 @@ class _HomePageState extends State<HomePage> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          height: 120,
-                          width: 120,
-                          foregroundDecoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(64),
-                              image: DecorationImage(
-                                  image: AssetImage("assets/my_pic.png"),
-                                  fit: BoxFit.fill)),
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              "Name: ",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 28,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              "Sebastine Odeh",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 28,
-                                  fontWeight: FontWeight.w400),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Card(
-                      color: Colors.black,
-                      elevation: 8,
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.only(topRight: Radius.circular(30)),
+                      ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
@@ -183,6 +152,16 @@ class _HomePageState extends State<HomePage> {
                     ),
                     SizedBox(
                       height: 20,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                      ),
+                      child: Column(
+                        children: [
+                          Text("Specialisations", style: TextStyle(color: Colors.white),),
+                        ],
+                      ),
                     ),
                     Text(
                       "Projects",
@@ -212,6 +191,12 @@ class _HomePageState extends State<HomePage> {
         ),
       ],
     );
+  }
+
+  Widget _specialisationInfo({Icon icon, String specialisationName}){
+    return GridTile(header: Container(
+      child: icon,
+    ),child: Text(specialisationName));
   }
 
   Widget _projectInfo(
