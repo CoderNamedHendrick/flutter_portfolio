@@ -28,6 +28,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.purple,
         title: Text(
           "Portfolio App",
           textDirection: TextDirection.ltr,
@@ -35,6 +36,7 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
       ),
       body: _portfolio(context),
+      backgroundColor: Colors.purple,
     );
   }
 
@@ -63,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.transparent,
                 child: Icon(
                   getHeightState() == true ? Icons.close : Icons.height,
-                  color: Colors.orange,
+                  color: Colors.purple[400],
                 ),
                 onPressed: () => setState(() {
                   getHeightState() == true ? setHeight(height: 5) : setHeight();
@@ -86,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           "Sebastine Odeh.",
-                          style: TextStyle(fontSize: 28, color: Colors.orange),
+                          style: TextStyle(fontSize: 28, color: Colors.purple[400]),
                         )
                       ],
                     ),
@@ -102,8 +104,11 @@ class _HomePageState extends State<HomePage> {
         ),
         Expanded(
           child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(18), topRight: Radius.circular(18),),
+              color: Colors.purple[700],
+            ),
             height: MediaQuery.of(context).size.height,
-            color: Colors.pink,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: SingleChildScrollView(
@@ -118,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                           foregroundDecoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(64),
                               image: DecorationImage(
-                                  image: AssetImage("assets/night_image.jpg"),
+                                  image: AssetImage("assets/my_pic.jpg"),
                                   fit: BoxFit.fill)),
                         ),
                         Row(
@@ -144,42 +149,47 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       height: 20,
                     ),
-                    Column(
-                      children: [
-                        Text(
-                          "About",
-                          style: TextStyle(
-                              fontSize: 28, fontWeight: FontWeight.bold),
+                    Card(
+                      elevation: 8,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            Text(
+                              "About",
+                              style:
+                                  TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              "I am a student of the University of Lagos, studying Computer Engineering. I build mobile apps using flutter.",
+                              style: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.normal,
+                              ),
+                              textDirection: TextDirection.ltr,
+                            ),
+                          ],
                         ),
-                        Text(
-                          "I am a student of the University of Lagos, studying Computer Engineering. I build mobile apps using flutter.",
-                          style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.normal,
-                          ),
-                          textDirection: TextDirection.ltr,
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          "Projects",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 32,
-                              decoration: TextDecoration.underline),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        _projectInfo(
-                            assetPath: "assets/weather_app.png",
-                            projectTitle: "Weather app",
-                            projectInfo:
-                                "This is a weather app built with flutter."
-                                "The project served as practice for understanding states in flutter and for calling APIs.")
-                      ],
+                      ),
                     ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "Projects",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 32,
+                          decoration: TextDecoration.underline),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    _projectInfo(
+                        assetPath: "assets/weather_app.png",
+                        projectTitle: "Weather app",
+                        projectInfo: "This is a weather app built with flutter."
+                            "The project served as practice for understanding states in flutter and for calling APIs.")
                   ],
                 ),
               ),
@@ -192,25 +202,46 @@ class _HomePageState extends State<HomePage> {
 
   Widget _projectInfo(
       {String assetPath, String projectTitle, String projectInfo}) {
-    return SingleChildScrollView(
-      child: Container(
-        child: Column(
-          children: [
-            Image(
-              image: AssetImage(assetPath),
+    return Container(
+      child: Column(
+        children: [
+          Image(
+            image: AssetImage(assetPath),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Card(
+            elevation: 8,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Text(
+                    projectTitle,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 28,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    projectInfo,
+                    style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      fontSize: 22,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                ],
+              ),
             ),
-            SizedBox(height: 10,),
-            Text(
-              projectTitle,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
-            ),
-            SizedBox(height: 10,),
-            Text(
-              projectInfo,
-              style: TextStyle(fontWeight: FontWeight.normal, fontSize: 22),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
