@@ -22,7 +22,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  double height = 1.4;
+  double height = 1.8;
   bool heightState = true;
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _portfolio(BuildContext context) {
-    void setHeight({double height: 1.4}) => this.height = height;
+    void setHeight({double height: 1.8}) => this.height = height;
     double getHeight() => this.height;
     void setHeightState({bool heightState: true}) =>
         this.heightState = heightState;
@@ -106,80 +106,82 @@ class _HomePageState extends State<HomePage> {
             color: Colors.pink,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        height: 120,
-                        width: 120,
-                        foregroundDecoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(64),
-                            image: DecorationImage(
-                                image: AssetImage("assets/night_image.jpg"),
-                                fit: BoxFit.fill)),
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            "Name: ",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            "Sebastine Odeh",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 28,
-                                fontWeight: FontWeight.w400),
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        "About",
-                        style: TextStyle(
-                            fontSize: 28, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "I am a student of the University of Lagos, studying Computer Engineering. I build mobile apps using flutter.",
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.normal,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          height: 120,
+                          width: 120,
+                          foregroundDecoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(64),
+                              image: DecorationImage(
+                                  image: AssetImage("assets/night_image.jpg"),
+                                  fit: BoxFit.fill)),
                         ),
-                        textDirection: TextDirection.ltr,
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        "Projects",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 32,
-                            decoration: TextDecoration.underline),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      _projectInfo(
-                          assetPath: "assets/weather_app.png",
-                          projectTitle: "Weather app",
-                          projectInfo:
-                              "This is a weather app built with flutter."
-                              "The project served as practice for understanding states in flutter and for calling APIs.")
-                    ],
-                  ),
-                ],
+                        Row(
+                          children: [
+                            Text(
+                              "Name: ",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              "Sebastine Odeh",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.w400),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          "About",
+                          style: TextStyle(
+                              fontSize: 28, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          "I am a student of the University of Lagos, studying Computer Engineering. I build mobile apps using flutter.",
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.normal,
+                          ),
+                          textDirection: TextDirection.ltr,
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          "Projects",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 32,
+                              decoration: TextDecoration.underline),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        _projectInfo(
+                            assetPath: "assets/weather_app.png",
+                            projectTitle: "Weather app",
+                            projectInfo:
+                                "This is a weather app built with flutter."
+                                "The project served as practice for understanding states in flutter and for calling APIs.")
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -194,13 +196,15 @@ class _HomePageState extends State<HomePage> {
       child: Container(
         child: Column(
           children: [
-            // Image(
-            //   image: AssetImage(assetPath),
-            // ),
+            Image(
+              image: AssetImage(assetPath),
+            ),
+            SizedBox(height: 10,),
             Text(
               projectTitle,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
             ),
+            SizedBox(height: 10,),
             Text(
               projectInfo,
               style: TextStyle(fontWeight: FontWeight.normal, fontSize: 22),
