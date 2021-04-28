@@ -172,40 +172,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                             SizedBox(
                               height: 130,
-                              child: GridView.count(
-                                childAspectRatio: 2,
-                                crossAxisCount: 2,
-                                padding: EdgeInsets.all(8.0),
-                                crossAxisSpacing: 8,
-                                mainAxisSpacing: 8,
-                                children: [
-                                  _specialisationInfo(
-                                    icon: Icon(
-                                      Icons.code,
-                                      color: Colors.deepOrange,
-                                    ),
-                                    speciality: "Flutter",
-                                  ),
-                                  _specialisationInfo(
-                                      icon: Icon(
-                                        Icons.stream,
-                                        color: Colors.deepOrange,
-                                      ),
-                                      speciality: "StateManagement with blocs"),
-                                  _specialisationInfo(
-                                      icon: Icon(
-                                        Icons.code,
-                                        color: Colors.deepOrange,
-                                      ),
-                                      speciality: "Dart"),
-                                  _specialisationInfo(
-                                      icon: Icon(
-                                        Icons.android_rounded,
-                                        color: Colors.deepOrange,
-                                      ),
-                                      speciality: "Android development"),
-                                ],
-                              ),
+                              child: _skillsSection(),
                             ),
                           ],
                         ),
@@ -227,13 +194,50 @@ class _HomePageState extends State<HomePage> {
                           projectInfo:
                               "This is a weather app built with flutter."
                               "The project served as practice for understanding states in flutter and for calling APIs."),
-                    )
+                    ),
                   ],
                 ),
               ),
             ),
           ),
         ),
+      ],
+    );
+  }
+
+  GridView _skillsSection() {
+    return GridView.count(
+      childAspectRatio: 2,
+      crossAxisCount: 2,
+      padding: EdgeInsets.all(8.0),
+      crossAxisSpacing: 8,
+      mainAxisSpacing: 8,
+      children: [
+        _specialisationInfo(
+          icon: Icon(
+            Icons.code,
+            color: Colors.deepOrange,
+          ),
+          speciality: "Flutter",
+        ),
+        _specialisationInfo(
+            icon: Icon(
+              Icons.stream,
+              color: Colors.deepOrange,
+            ),
+            speciality: "StateManagement with blocs"),
+        _specialisationInfo(
+            icon: Icon(
+              Icons.code,
+              color: Colors.deepOrange,
+            ),
+            speciality: "Dart"),
+        _specialisationInfo(
+            icon: Icon(
+              Icons.android_rounded,
+              color: Colors.deepOrange,
+            ),
+            speciality: "Android development"),
       ],
     );
   }
