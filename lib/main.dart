@@ -182,28 +182,28 @@ class _HomePageState extends State<HomePage> {
                                   _specialisationInfo(
                                     icon: Icon(
                                       Icons.code,
-                                      color: Colors.red,
+                                      color: Colors.deepOrange,
                                     ),
                                     speciality: "Flutter",
                                   ),
                                   _specialisationInfo(
                                       icon: Icon(
                                         Icons.stream,
-                                        color: Colors.red,
+                                        color: Colors.deepOrange,
                                       ),
                                       speciality: "StateManagement with blocs"),
                                   _specialisationInfo(
                                       icon: Icon(
                                         Icons.code,
-                                        color: Colors.red,
+                                        color: Colors.deepOrange,
                                       ),
                                       speciality: "Dart"),
                                   _specialisationInfo(
-                                    icon: Icon(
-                                      Icons.android_rounded, color: Colors.red,
-                                    ),
-                                    speciality: "Android development"
-                                  ),
+                                      icon: Icon(
+                                        Icons.android_rounded,
+                                        color: Colors.deepOrange,
+                                      ),
+                                      speciality: "Android development"),
                                 ],
                               ),
                             ),
